@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script src="~/Scripts/Vue/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div>
+        <div id="app">
+            <p>{{ a |  capitalize}}</p>
+            <p>{{ b }}</p>
+            <p v-html="c"></p>
+            <p v-html="c></p>
+            <p v-if="see">看见我了吗？</p>
+            <a v-bind:href="url">dian wo</a>
+            <button v-on:click="dosoming" v-html="a+b"></button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            a: "aaa",
+            b: "bbb",
+            c: "<h1>112</h1>",
+            see: false,
+            url: "http://www.baidu.com",
+        },
+        methods: {
+            dosoming: function () {
+                this.a = "aaaa1"
+            }
+        },
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ""
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        }
+    });
+  
+</script>
